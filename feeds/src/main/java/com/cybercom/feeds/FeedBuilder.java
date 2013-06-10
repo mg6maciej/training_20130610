@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.inject.Named;
 
 import com.cybercom.feeds.model.Feed;
 import com.cybercom.feeds.model.Item;
@@ -13,7 +15,7 @@ import com.sun.syndication.feed.synd.SyndEntryImpl;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.SyndFeedInput;
 
-@Stateless
+@Named
 public class FeedBuilder {
 	
 	public Feed fromXml(String xml) {
