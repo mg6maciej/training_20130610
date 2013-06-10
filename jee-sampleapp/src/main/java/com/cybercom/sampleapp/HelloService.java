@@ -4,6 +4,7 @@ import javax.ejb.Stateless;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.Response;
 
 @Path("/rs/")
 @Stateless
@@ -11,8 +12,8 @@ public class HelloService {
 
 	@Path("/hello/{name}")
 	@GET
-	public String sayHello(@PathParam("name") String name) {
-		return "Hello! " + name;
+	public Response sayHello(@PathParam("name") String name) {
+		return Response.ok().entity("Hello! " + name).build();
 	}
 	
 }
