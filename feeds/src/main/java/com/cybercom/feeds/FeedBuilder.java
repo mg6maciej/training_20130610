@@ -28,8 +28,10 @@ public class FeedBuilder {
 	}
 
 	public Feed fromRomeSyndFeed(SyndFeed romeFeed) {
-		Feed f = new Feed.Builder().withTitle(romeFeed.getTitle())
-				.withLink(romeFeed.getLink()).withItems(new ArrayList<Item>())
+		Feed f = new Feed.Builder()
+				.withTitle(romeFeed.getTitle())
+				.withLink(romeFeed.getLink())
+				.withItems(new ArrayList<Item>())
 				.build();
 
 		List<?> romeEntries = romeFeed.getEntries();
