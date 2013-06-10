@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
+import com.cybercom.feeds.model.Feed;
 import com.sun.syndication.feed.synd.SyndFeed;
 
 public class FeedParserTest {
@@ -22,10 +23,10 @@ public class FeedParserTest {
 
 		String xmlBody = new Scanner(xml).useDelimiter("\\A").next();
 		
-		FeedParser parser = new FeedParser();
-		SyndFeed feed = parser.parse(xmlBody);
+		FeedBuilder parser = new FeedBuilder();
+		Feed feed = parser.fromXml(xmlBody);
 		
-		assertThat(feed.getEntries().size(), equalTo(1));
+		assertThat(feed.getItems().size(), equalTo(1));
 	}
 	
 }
