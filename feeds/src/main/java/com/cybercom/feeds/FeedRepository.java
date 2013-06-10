@@ -7,6 +7,7 @@ import javax.ejb.ConcurrencyManagement;
 import javax.ejb.ConcurrencyManagementType;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+import javax.interceptor.Interceptors;
 
 import com.cybercom.feeds.model.Feed;
 
@@ -17,6 +18,7 @@ public class FeedRepository {
 
 	private ArrayList<Feed> feeds = new ArrayList<Feed>();
 	
+	@Interceptors(LogInterceptor.class)
 	public void add(Feed feed) {
 		feeds.add(feed);
 	}
