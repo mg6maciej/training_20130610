@@ -31,7 +31,7 @@ public class FeedServlet extends HttpServlet {
 		Feed feed = parser.fromXml(rss);
 
 		repository.add(feed);
-		
+
 		PrintWriter writer = resp.getWriter();
 		writer.append("Feed with " + feed.getItems().size() + " item(s)");
 	}

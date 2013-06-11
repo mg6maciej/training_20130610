@@ -19,7 +19,7 @@ public class FeedRepository {
 
 	@PersistenceContext
 	EntityManager em;
-	
+
 	@Interceptors(LogInterceptor.class)
 	public void add(Feed feed) {
 		em.persist(feed);

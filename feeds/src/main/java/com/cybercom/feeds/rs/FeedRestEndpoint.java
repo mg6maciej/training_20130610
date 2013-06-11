@@ -1,6 +1,8 @@
 package com.cybercom.feeds.rs;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -13,6 +15,7 @@ import com.cybercom.feeds.model.Feed;
 @Path("/rs")
 @Stateless
 @Produces(MediaType.APPLICATION_JSON)
+@TransactionAttribute(TransactionAttributeType.NEVER)
 public class FeedRestEndpoint {
 
 	@Inject
