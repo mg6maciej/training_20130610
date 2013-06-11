@@ -8,13 +8,20 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
+@NamedQueries({
+	@NamedQuery(name=Feed.FIND_ALL, query="from Feed")
+})
 public class Feed {
 
+	final static public String FIND_ALL = "Feed.findAll";
+	
 	@Id
 	@GeneratedValue
 	private long id;
@@ -61,7 +68,7 @@ public class Feed {
 	public void setItems(List<Item> items) {
 		this.items = items;
 	}
-
+	
 	public void addItem(Item item) {
 		if (this.items == null) {
 			this.items = new ArrayList<Item>();
@@ -134,8 +141,4 @@ public class Feed {
 		return true;
 	}
 
-	
-	
-	
-	
 }
