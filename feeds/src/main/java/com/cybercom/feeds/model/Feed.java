@@ -3,18 +3,36 @@ package com.cybercom.feeds.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Transient;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 
+@Entity
 @XmlRootElement
 public class Feed {
 
+	@Id
+	@GeneratedValue
+	private long id;
+	
+
 	private String title;
 	private String link;
+	
+	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private List<Item> items;
+
+	public long getId() {
+		return id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public Feed() {
 		
